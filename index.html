@@ -12,6 +12,34 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     // Your ItemList component code will go here
+    function ItemList ({items}) {
+
+        if(items.length === 0) {
+            return <h1>No items</h1>
+        }
+
+        return (
+            <ul>
+              {
+                items.map((item,i) => {
+                   return <li key={i}>{item}</li>
+                })
+              }
+            </ul>
+        )
+        
+    }
+
+    function App () {
+        return (
+            <>
+                <ItemList items = {["Apple", "Banana", "Cherry"]} />
+            </>
+        )
+    }
+
+    let rootElement =  ReactDOM.createRoot(document.getElementById("root"));
+    rootElement.render(<App />);
   </script>
 </body>
 </html>
